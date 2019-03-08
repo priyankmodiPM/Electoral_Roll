@@ -83,3 +83,16 @@ for i in list_final:
         fout.write(",")
     fout.write("\n")
 fout.close()
+
+r = csv.reader(open('final.csv')) # Here your csv file
+lines = list(r)
+
+for i in range(len(lines)):
+    if lines[i][4] == 'પુ(cid:302)ષ':
+        lines[i][4] = 'પુરુષ'
+
+    elif lines[i][4] == '(cid:280)ી':
+        lines[i][4] = 'સ્ત્રી'
+
+writer = csv.writer(open('final.csv', 'w'))
+writer.writerows(lines)
